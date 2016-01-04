@@ -8,17 +8,12 @@ package com.ideaspymes.esqueletomaven.jsf;
 import com.ideaspymes.esqueletomaven.model.Producto;
 import com.ideaspymes.esqueletomaven.model.Resultado;
 import java.io.UnsupportedEncodingException;
-import java.util.Map;
 import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
-import org.drools.compiler.compiler.io.Resource;
-import org.drools.core.builder.conf.impl.ResourceConfigurationImpl;
-import org.drools.core.io.impl.ByteArrayResource;
 import org.kie.api.io.ResourceType;
-import org.kie.api.runtime.KieSession;
 import org.kie.internal.KnowledgeBase;
 import org.kie.internal.KnowledgeBaseFactory;
 import org.kie.internal.builder.KnowledgeBuilder;
@@ -38,9 +33,6 @@ public class RuleEngine {
 
     public String getKieSession(String condicion, String consecuencia) throws UnsupportedEncodingException {
 
-       
-        
-        
         String dslr = "package com.ideaspymes.esqueletomaven;\n"
                 + "import com.ideaspymes.esqueletomaven.model.*;\n"
                 + "\n"
@@ -51,7 +43,7 @@ public class RuleEngine {
                 + condicion + " \n"
                 + " devuelve resultado \n"
                 + "  then\n"
-                + consecuencia+ " \n"
+                + consecuencia + " \n"
                 + "end";
 
         KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();

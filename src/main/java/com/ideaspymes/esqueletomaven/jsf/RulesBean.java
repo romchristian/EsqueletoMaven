@@ -56,13 +56,17 @@ public class RulesBean implements Serializable {
             mapConsultas.put("Comparar ventas de y de hoy", "Traer comparacion");
             String clave = oracion.split(" ")[0];
             String consecuencia = "";
-            
-            
-            for(String key : mapConsultas.keySet()){
-            
+            System.out.println("Clave: " + clave);
+            for (String key : mapConsultas.keySet()) {
+                if (key.contains(clave)) {
+                    consecuencia = mapConsultas.get(key);
+                    System.out.println("key: " + key);
+                    break;
+                }
             }
-            
-            String R = engine.getKieSession(oracion,consecuencia);
+
+            System.out.println("Consecuencia: " + consecuencia);
+            String R = engine.getKieSession(oracion, consecuencia);
 
             System.out.println("Resultado: " + R);
             resultado = R;
